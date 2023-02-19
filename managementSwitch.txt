@@ -1,0 +1,42 @@
+############# mode enable ################
+en or enable
+
+############# mode config ################
+conf t or configure terminal
+
+############# out ########################
+end or exit
+
+############ show interface all ##############
+sh run or show runing
+
+############ set ip port #####################
+interface ip address <ip> <subnet>
+or 
+int ip address <ip> <subnet>
+
+############# create telnet and set password #############
+line vty 0 4
+password cisco
+login
+
+############## create enable password ##########
+enable password 1234
+
+############## create banner ############
+banner motd x
+#########################################
+########### swicth 2690 #################
+#########################################x
+
+############## sava config ##############
+wr or write
+copy rinning-config startup-config
+
+
+############## port security ############
+interface fa0/3 //ใช้ port 3
+switchport mode access
+switchport port-security 
+switchport port-security mac-address sticky //ใช้ mac address นี่เท่านั้น ที่ใช้ port นี่เท่านั้น
+switchport port-security maximum 1 //เข้าได้ 1 เครื่อง

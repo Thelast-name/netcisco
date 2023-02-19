@@ -1,0 +1,40 @@
+########### create vlan 4 ##################
+vlan 4
+name Admin
+exit
+int fa0/6
+switchport mode access
+switchport access vlan 4
+
+############ allowed vlan3 #################
+int gig0/1
+switchport trunk allowed vlan 3
+switchport trunk allowed vlan add 2
+
+
+name Account
+
+########### chang hostname ###################
+hostname sw1
+
+########## add port vlan #####################
+int fa0/2
+switchport mode access
+switchport access vlan 2
+
+int fa0/3
+switchport mode access
+switchport access vlan 2
+
+int range fa0/4-5
+switchport mode access
+switchport access vlan 3
+
+
+show vlan
+switchport mode access
+switchport access vlan 2
+
+int gig0/1
+switchport mode trunk
+show interfaces trunk 
