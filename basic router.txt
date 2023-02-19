@@ -1,0 +1,42 @@
+######## set password enable #########
+enable password <password>
+enable secret 123456
+
+######## password encryption #########
+SE-Router(config)#service password-encryption 
+
+######## set password console #######
+SE-Router(config)#line console 0
+SE-Router(config-line)#password cisco
+SE-Router(config-line)#login
+
+######## save ######################
+copy running-config startup-config
+wr
+
+######## set password vty ##########
+SE-Router(config)#line vty 0 4
+SE-Router(config-line)#password cisco
+SE-Router(config-line)#login
+
+######## set ip port ###############
+SE-Router(config)#int gig0/0
+SE-Router(config-if)#ip address 192.168.1.254 255.255.255.0
+SE-Router(config-if)#description Link-to-Lan-A
+SE-Router(config-if)#no shutdown 
+
+######### set user ##################
+SE-Router(config)#username Admin1 password cisco
+SE-Router(config)#username Admin2 password 1234
+######### set login console ###########
+	SE-Router(config)#line console 0
+	SE-Router(config-line)#login local
+######### set login vty ###############
+	SE-Router(config)#line vty 0 4
+	SE-Router(config-line)#login local
+
+######### ดู config ###################
+SE-Router#sh running-config
+
+######### clear config #################
+SE-Router#erase startup-config

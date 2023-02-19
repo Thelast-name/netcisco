@@ -1,0 +1,29 @@
+############## trunk #####################
+Switch(config)#int fa0/1
+Switch(config-if)#switchport mode trunk 
+
+############### vlan ####################
+Router(config)#int gig0/0.20
+Router(config-subif)#encapsulation dot1Q 20
+Router(config-subif)#ip address 192.168.1.254 255.255.255.0
+
+################ loopback ##################
+Router(config)#int loopback 0
+Router(config-if)#ip address 1.1.1.1 255.255.255.0
+Router#sh ip route
+no shutdown
+
+################# switch mod trunk swith L3 ##############
+int fa0/1
+switchport trunk encapsulation dot1q 
+L3(config-if)#switchport mode trunk 
+
+################ add vlan swich L3 ####################
+L3(config)#int vlan 30
+L3(config-if)#ip address 192.168.2.253 255.255.255.0
+L3(config)#ip routing
+
+############## EIGRP Routing #######################
+Router(config)#router eigrp 100
+Router(config-router)#no auto-summary 
+Router(config-router)#network 0.0.0.0
