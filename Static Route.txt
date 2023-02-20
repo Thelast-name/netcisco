@@ -1,8 +1,9 @@
 Router(config)#int se0/3/0
 Router(config-if)#ip address 10.10.10.1 255.255.255.252
+Router(config-if)#bandwidth 2048
 Router(config-if)#clock rate 128000
 Router(config-if)#no shutdown
-Router(config-if)#bandwidth 2048
+
 
 ใช้คำสั่ง ip route
 ip route network subnet gateway
