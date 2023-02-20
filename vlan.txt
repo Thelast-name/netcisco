@@ -7,6 +7,7 @@ switchport mode access
 switchport access vlan 4
 
 ############ allowed vlan3 #################
+//กำหนดให้ผ่านได้เฉพาะ vlan 
 int gig0/1
 switchport trunk allowed vlan 3
 switchport trunk allowed vlan add 2
